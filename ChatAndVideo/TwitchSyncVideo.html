@@ -1,0 +1,102 @@
+<html>
+
+<head>
+  <title>TwitchSync Pro Video</title>
+  <style></style>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">TS</div>
+        <h1>TwitchSync Pro Video</h1>
+      </div>
+      <div class="channel-selector">
+        <input type="text" id="channel-input" placeholder="Enter Twitch username" />
+        <button id="connect-button">Connect</button>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="video-chat-container">
+        <div id="video-container">
+          <div id="twitch-embed"></div>
+        </div>
+        <div id="chat"></div>
+      </div>
+      <div class="sidebar">
+        <div id="status">Not connected</div>
+        <div class="chat-stats">
+          <h3>Chat Statistics</h3>
+          <div class="stat-item">
+            <span>Messages:</span>
+            <span id="message-count" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span>Unique Users:</span>
+            <span id="user-count" class="stat-value">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="message-input">
+      <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" disabled />
+      <button id="send-button" disabled>Send</button>
+    </div>
+
+    <button id="chat-login-button">Log in to Twitch</button>
+  </div>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-header">
+        <h2>Login to Twitch</h2>
+      </div>
+      <div class="modal-body">
+        <div class="login-instructions">
+          <h3>How to get your Twitch OAuth Token:</h3>
+          <ol>
+            <li>
+              Visit the
+              <a href="#" onclick="window.open('https://twitchapps.com/tmi/', '_blank')">Twitch Chat OAuth Password
+                Generator</a>
+            </li>
+            <li>
+              Click on "Connect with Twitch" and log in to your Twitch account
+            </li>
+            <li>Authorize the application to generate your OAuth token</li>
+            <li>
+              Copy the generated OAuth token (including the "oauth:" prefix)
+            </li>
+            <li>Paste the token into the "OAuth Token" field below</li>
+          </ol>
+        </div>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="oauth">OAuth Token:</label>
+            <input type="password" id="oauth" name="oauth" required />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<!--- SCRIPTS -->
+
+  <script src="https://raskolniktv.duckdns.org/tmi.js"></script>
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  <script src="./scripts/script.js"></script>
+</body>
+
+</html>
